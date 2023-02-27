@@ -30,7 +30,7 @@ struct ContentView: View {
   
   // MARK: - LoadData
   func loadData() async {
-    guard let url = URL(string: "https://pgroute-staging.easyparksystem.net/cities") else {
+    guard let url = URL(string: Constants.General.urlString) else {
       print("Invalid URL")
       return
     }
@@ -41,7 +41,7 @@ struct ContentView: View {
       if let decodedResponse = try? JSONDecoder().decode(Response.self, from: data) {
         cities = decodedResponse.cities
       } else {
-        cities = CityData.cities
+        cities = []
       }
     } catch {
       print("Invalid data")

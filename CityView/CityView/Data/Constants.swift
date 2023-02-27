@@ -12,5 +12,6 @@ enum Constants {
   enum General{
     public static let appName = "CityView"
     public static let spacing = CGFloat(10.0)
+    public static let urlString = "https://pgroute-staging.easyparksystem.net/cities"
   }
 }

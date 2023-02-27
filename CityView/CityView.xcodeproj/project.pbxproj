@@ -55,10 +55,9 @@
 		EC3D7D6129AD5E5100D61696 /* CityView */ = {
 			isa = PBXGroup;
 			children = (
-				EC3D7D7329AD626000D61696 /* Data */,
+				EC3D7D7629AD62D400D61696 /* App */,
 				EC3D7D7029AD619700D61696 /* Model */,
-				EC3D7D6229AD5E5100D61696 /* CityViewApp.swift */,
-				EC3D7D6429AD5E5100D61696 /* ContentView.swift */,
+				EC3D7D7329AD626000D61696 /* Data */,
 				EC3D7D6629AD5E5200D61696 /* Assets.xcassets */,
 				EC3D7D6829AD5E5200D61696 /* Preview Content */,
 			);
@@ -87,6 +86,15 @@
 				EC3D7D7429AD627E00D61696 /* CityData.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		EC3D7D7629AD62D400D61696 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				EC3D7D6229AD5E5100D61696 /* CityViewApp.swift */,
+				EC3D7D6429AD5E5100D61696 /* ContentView.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
   
   // MARK: - Property
-  let cities = CityData.cities
+  @State private var cities = [City]()
   
   // MARK: - Body
   var body: some View {
@@ -20,9 +20,32 @@ struct ContentView: View {
           CityRowView(city: city)
         } //: NavigationLink
       } //: List
+      .task {
+        await loadData()
+      }
       .navigationBarTitle(Constants.General.appName, displayMode: .large)
     } //: NavigationView
     .navigationViewStyle(StackNavigationViewStyle())
+  }
+  
+  // MARK: - LoadData
+  func loadData() async {
+    guard let url = URL(string: "https://pgroute-staging.easyparksystem.net/cities") else {
+      print("Invalid URL")
+      return
+    }
+    
+    do {
+      let (data, _) = try await URLSession.shared.data(from: url)
+      
+      if let decodedResponse = try? JSONDecoder().decode(Response.self, from: data) {
+        cities = decodedResponse.cities
+      } else {
+        cities = CityData.cities
+      }
+    } catch {
+      print("Invalid data")
+    }
   }
 }
 

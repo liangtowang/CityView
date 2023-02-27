@@ -11,8 +11,13 @@ struct Response: Decodable {
   var cities: [City]
 }
 
-struct City: Decodable {
+struct City: Identifiable, Decodable {
+  var id = UUID()
   let name: String
   let lat: Double
   let lon: Double
+  
+  private enum CodingKeys: String, CodingKey {
+    case name, lat, lon
+  }
 }

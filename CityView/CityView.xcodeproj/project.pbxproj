@@ -16,6 +16,7 @@
 		EC3D7D7929AD664100D61696 /* CityRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3D7D7829AD664100D61696 /* CityRowView.swift */; };
 		EC3D7D7B29AD68A300D61696 /* CityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3D7D7A29AD68A300D61696 /* CityDetailView.swift */; };
 		EC3D7D7D29AD6A9300D61696 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3D7D7C29AD6A9300D61696 /* Constants.swift */; };
+		EC3D7D8129AD714D00D61696 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3D7D8029AD714D00D61696 /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		EC3D7D7A29AD68A300D61696 /* CityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailView.swift; sourceTree = "<group>"; };
 		EC3D7D7C29AD6A9300D61696 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EC3D7D7E29AD6C3600D61696 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		EC3D7D8029AD714D00D61696 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		EC3D7D6129AD5E5100D61696 /* CityView */ = {
 			isa = PBXGroup;
 			children = (
+				EC3D7D7F29AD6FE300D61696 /* Utility */,
 				EC3D7D7E29AD6C3600D61696 /* Info.plist */,
 				EC3D7D7629AD62D400D61696 /* App */,
 				EC3D7D7729AD662100D61696 /* View */,
@@ -114,6 +117,14 @@
 				EC3D7D7A29AD68A300D61696 /* CityDetailView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		EC3D7D7F29AD6FE300D61696 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				EC3D7D8029AD714D00D61696 /* NetworkService.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +199,7 @@
 			files = (
 				EC3D7D7D29AD6A9300D61696 /* Constants.swift in Sources */,
 				EC3D7D7929AD664100D61696 /* CityRowView.swift in Sources */,
+				EC3D7D8129AD714D00D61696 /* NetworkService.swift in Sources */,
 				EC3D7D7529AD627E00D61696 /* CityData.swift in Sources */,
 				EC3D7D6529AD5E5100D61696 /* ContentView.swift in Sources */,
 				EC3D7D6329AD5E5100D61696 /* CityViewApp.swift in Sources */,

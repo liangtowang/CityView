@@ -21,31 +21,15 @@ struct ContentView: View {
         } //: NavigationLink
       } //: List
       .task {
-        await loadData()
+        do {
+          cities = try await NetworkService().loadData()
+        } catch {
+          cities = []
+        }
       }
       .navigationBarTitle(Constants.General.appName, displayMode: .large)
     } //: NavigationView
     .navigationViewStyle(StackNavigationViewStyle())
-  }
-  
-  // MARK: - LoadData
-  func loadData() async {
-    guard let url = URL(string: Constants.General.urlString) else {
-      print("Invalid URL")
-      return
-    }
-    
-    do {
-      let (data, _) = try await URLSession.shared.data(from: url)
-      
-      if let decodedResponse = try? JSONDecoder().decode(Response.self, from: data) {
-        cities = decodedResponse.cities
-      } else {
-        cities = []
-      }
-    } catch {
-      print("Invalid data")
-    }
   }
 }
 

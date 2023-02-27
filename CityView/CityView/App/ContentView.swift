@@ -20,6 +20,7 @@ struct ContentView: View {
           CityRowView(city: city)
         } //: NavigationLink
       } //: List
+      .navigationBarTitle("CityView", displayMode: .large)
     } //: NavigationView
     .navigationViewStyle(StackNavigationViewStyle())
   }

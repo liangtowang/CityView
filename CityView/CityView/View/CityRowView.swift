@@ -10,11 +10,11 @@ import SwiftUI
 struct CityRowView: View {
   
   // MARK: - Property
-  var city: City
+  @State var city: City
   
   // MARK: - Body
   var body: some View {
-    VStack(alignment: .leading, spacing: 10) {
+    VStack(alignment: .leading, spacing: Constants.General.spacing) {
       Text(city.name)
         .font(.title2)
       Text("Latitude: \(city.lat)")

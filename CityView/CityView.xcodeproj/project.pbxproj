@@ -11,7 +11,8 @@
 		EC3D7D6529AD5E5100D61696 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3D7D6429AD5E5100D61696 /* ContentView.swift */; };
 		EC3D7D6729AD5E5200D61696 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC3D7D6629AD5E5200D61696 /* Assets.xcassets */; };
 		EC3D7D6A29AD5E5200D61696 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC3D7D6929AD5E5200D61696 /* Preview Assets.xcassets */; };
-		EC3D7D7229AD61A600D61696 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3D7D7129AD61A600D61696 /* City.swift */; };
+		EC3D7D7229AD61A600D61696 /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3D7D7129AD61A600D61696 /* CityModel.swift */; };
+		EC3D7D7529AD627E00D61696 /* CityData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3D7D7429AD627E00D61696 /* CityData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,7 +21,8 @@
 		EC3D7D6429AD5E5100D61696 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EC3D7D6629AD5E5200D61696 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC3D7D6929AD5E5200D61696 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		EC3D7D7129AD61A600D61696 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		EC3D7D7129AD61A600D61696 /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
+		EC3D7D7429AD627E00D61696 /* CityData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 		EC3D7D6129AD5E5100D61696 /* CityView */ = {
 			isa = PBXGroup;
 			children = (
+				EC3D7D7329AD626000D61696 /* Data */,
 				EC3D7D7029AD619700D61696 /* Model */,
 				EC3D7D6229AD5E5100D61696 /* CityViewApp.swift */,
 				EC3D7D6429AD5E5100D61696 /* ContentView.swift */,
@@ -73,9 +76,17 @@
 		EC3D7D7029AD619700D61696 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EC3D7D7129AD61A600D61696 /* City.swift */,
+				EC3D7D7129AD61A600D61696 /* CityModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		EC3D7D7329AD626000D61696 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				EC3D7D7429AD627E00D61696 /* CityData.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,9 +159,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC3D7D7529AD627E00D61696 /* CityData.swift in Sources */,
 				EC3D7D6529AD5E5100D61696 /* ContentView.swift in Sources */,
 				EC3D7D6329AD5E5100D61696 /* CityViewApp.swift in Sources */,
-				EC3D7D7229AD61A600D61696 /* City.swift in Sources */,
+				EC3D7D7229AD61A600D61696 /* CityModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

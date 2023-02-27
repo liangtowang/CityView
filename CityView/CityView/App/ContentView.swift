@@ -16,8 +16,10 @@ struct ContentView: View {
   var body: some View {
     NavigationView {
       List(cities, id: \.name) { city in
-        CityRowView(city: city)
-      }
+        NavigationLink(destination: CityDetailView(city: city)) {
+          CityRowView(city: city)
+        } //: NavigationLink
+      } //: List
     } //: NavigationView
     .navigationViewStyle(StackNavigationViewStyle())
   }

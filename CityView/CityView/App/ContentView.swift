@@ -9,21 +9,21 @@ import SwiftUI
 
 struct ContentView: View {
   
-  // Mark: - Property
+  // MARK: - Property
   let cities = CityData.cities
   
-  // Mark: - Body
+  // MARK: - Body
   var body: some View {
     NavigationView {
       List(cities, id: \.name) { city in
-        /*@START_MENU_TOKEN@*/Text(city.name)/*@END_MENU_TOKEN@*/
+        CityRowView(city: city)
       }
     } //: NavigationView
     .navigationViewStyle(StackNavigationViewStyle())
   }
 }
 
-// Mark: - Preview
+// MARK: - Preview
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
     ContentView()

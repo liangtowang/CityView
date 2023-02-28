@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct CityDetailView: View {
   
@@ -14,7 +15,7 @@ struct CityDetailView: View {
   
   // MARK: - Body
   var body: some View {
-    Text(city.name)
+    MapView(city: city)
   }
 }
 

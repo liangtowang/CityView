@@ -15,12 +15,14 @@ struct ContentView: View {
   @State private var cities = [City]()
   @StateObject var locationManager = LocationManager()
   
+  @State var myLocation = CLLocation(latitude: 0.0, longitude: 0.0)
+  
   // MARK: - Body
   var body: some View {
     NavigationView {
       List(cities) { city in
         NavigationLink(destination: CityDetailView(city: city)) {
-          CityRowView(city: city)
+          CityRowView(city: city, myLocation: $myLocation)
         } //: NavigationLink
       } //: List
       .task {
@@ -36,26 +38,33 @@ struct ContentView: View {
     
     // Get current location
     VStack {
-      if let myLocation = locationManager.location {
-        VStack {
-          Text("My location: \(myLocation.latitude), \(myLocation.longitude)")
-            .font(.callout)
-            .foregroundColor(.white)
-            .padding()
-            .background(.gray)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-        }
+      switch locationManager.authorizationStatus {
+          // Location services are available.
+        case .authorizedWhenInUse:
+          
+          let myLocation = CLLocation(latitude: locationManager.location?.latitude ?? 0.0, longitude: locationManager.location?.longitude ?? 0.0)
+          
+          Text("Your current location is:")
+          if (myLocation.coordinate.latitude == 0.0) {
+            // Show progress spinner while fetching location data
+            ProgressView()
+          } else {
+            Text("Latitude: \(myLocation.coordinate.latitude.description)")
+            Text("Longitude: \(myLocation.coordinate.longitude.description)")
+//            updateDistance()
+          }
+        case .restricted, .denied:  // Location services currently unavailable.
+          Text("Current location data was restricted or denied.")
+        case .notDetermined:        // Authorization not determined yet.
+          Text("Finding your location...")
+          ProgressView()
+        default:
+          ProgressView()
       }
-      
-      LocationButton {
-        locationManager.requestLocation()
-      }
-      .frame(width: 180, height: 40)
-      .cornerRadius(30)
-      .symbolVariant(.fill)
-      .foregroundColor(.white)
     }
-    .padding()
+    
+//    func updateDistance() {
+//    }
   }
 }
 

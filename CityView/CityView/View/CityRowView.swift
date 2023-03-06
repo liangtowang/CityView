@@ -17,6 +17,8 @@ struct CityRowView: View {
   
   @StateObject var locationManager = LocationManager()
   
+  @Binding var myLocation: CLLocation
+  
   // MARK: - Body
   var body: some View {
     VStack(alignment: .leading, spacing: Constants.General.spacing) {
@@ -32,17 +34,13 @@ struct CityRowView: View {
   
   // Calculate distance
   func calculateDistance() -> Double {
-    var myLocation = CLLocation()
     
-    // Get user location
+//     Get user location
     if let location = locationManager.location {
-      
       myLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
       print("Current location latitude: \(myLocation.coordinate.latitude)")
-    } else {
-      myLocation = CLLocation(latitude: 59.437601, longitude: 18.066346)
-      print("Default lcoation latitude: \(myLocation.coordinate.latitude)")
     }
+    
     //City's location
     let cityLocation = CLLocation(latitude: city.lat, longitude: city.lon)
     
@@ -60,6 +58,6 @@ struct CityRowView: View {
 // MARK: - Preview
 struct CityRowView_Previews: PreviewProvider {
   static var previews: some View {
-    CityRowView(city: CityData.cities[2])
+    CityRowView(city: CityData.cities[2], myLocation: .constant(CLLocation(latitude: 59.437601, longitude: 18.066346)))
   }
 }

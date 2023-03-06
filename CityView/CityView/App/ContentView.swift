@@ -27,7 +27,10 @@ struct ContentView: View {
       } //: List
       .task {
         do {
-          cities = try await NetworkService().loadData()
+          // sort the cities by name
+          cities = try await NetworkService().loadData().sorted {
+            $0.name < $1.name
+          }
         } catch {
           cities = []
         }

@@ -19,6 +19,7 @@
 		EC3D7D8129AD714D00D61696 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3D7D8029AD714D00D61696 /* NetworkService.swift */; };
 		EC3D7D8329AD752A00D61696 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3D7D8229AD752A00D61696 /* LocationManager.swift */; };
 		EC3D7D8529AD7E7B00D61696 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3D7D8429AD7E7B00D61696 /* MapView.swift */; };
+		ECB225D729B5902000EC71E0 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB225D629B5902000EC71E0 /* Star.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		EC3D7D8029AD714D00D61696 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		EC3D7D8229AD752A00D61696 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		EC3D7D8429AD7E7B00D61696 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		ECB225D629B5902000EC71E0 /* Star.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				EC3D7D7129AD61A600D61696 /* CityModel.swift */,
+				ECB225D629B5902000EC71E0 /* Star.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 			files = (
 				EC3D7D7D29AD6A9300D61696 /* Constants.swift in Sources */,
 				EC3D7D7929AD664100D61696 /* CityRowView.swift in Sources */,
+				ECB225D729B5902000EC71E0 /* Star.swift in Sources */,
 				EC3D7D8129AD714D00D61696 /* NetworkService.swift in Sources */,
 				EC3D7D7529AD627E00D61696 /* CityData.swift in Sources */,
 				EC3D7D6529AD5E5100D61696 /* ContentView.swift in Sources */,

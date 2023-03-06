@@ -10,15 +10,15 @@ import CoreLocation
 import CoreLocationUI
 
 struct CityRowView: View {
-  
+
   // MARK: - Property
   @State var city: City
   @State var distance = 0.0
-  
+
   @StateObject var locationManager = LocationManager()
-  
+
   @Binding var myLocation: CLLocation
-  
+
   // MARK: - Body
   var body: some View {
     VStack(alignment: .leading, spacing: Constants.General.spacing) {
@@ -31,27 +31,27 @@ struct CityRowView: View {
       distance = calculateDistance()
     }
   }
-  
+
   // Calculate distance
   func calculateDistance() -> Double {
-    
+
 //     Get user location
     if let location = locationManager.location {
       myLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
       print("Current location latitude: \(myLocation.coordinate.latitude)")
     }
-    
-    //City's location
+
+    // City's location
     let cityLocation = CLLocation(latitude: city.lat, longitude: city.lon)
-    
-    //Measuring my distance to the city (in km)
+
+    // Measuring my distance to the city (in km)
     let distance = cityLocation.distance(from: myLocation) / 1000
-    
-    //Display the result in km
+
+    // Display the result in km
     print(String(format: "The distance to \(city.name) is %.01fkm \n", distance))
-    
+
     return distance
-    
+
   }
 }
 

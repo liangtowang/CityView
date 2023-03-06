@@ -10,13 +10,13 @@ import CoreLocation
 import CoreLocationUI
 
 struct ContentView: View {
-  
+
   // MARK: - Property
   @State private var cities = [City]()
   @StateObject var locationManager = LocationManager()
-  
+
   @State var myLocation = CLLocation(latitude: Constants.General.zero, longitude: Constants.General.zero)
-  
+
   // MARK: - Body
   var body: some View {
     NavigationView {
@@ -35,38 +35,37 @@ struct ContentView: View {
       .navigationBarTitle(Constants.General.appName, displayMode: .large)
     } //: NavigationView
     .navigationViewStyle(StackNavigationViewStyle())
-    
+
     // Get current location
     VStack {
       switch locationManager.authorizationStatus {
-          
-          // Location services are available.
-        case .authorizedWhenInUse:
-          
-          let currentLocation = CLLocation(
-            latitude: locationManager.location?.latitude ?? Constants.General.zero,
-            longitude: locationManager.location?.longitude ?? Constants.General.zero)
-          
-          Text(Constants.String.yourLocation)
-          if (currentLocation.coordinate.latitude == Constants.General.zero) {
-            // Show progress spinner while fetching location data
-            ProgressView()
-          } else {
-            Text(Constants.String.latitude + "\(currentLocation.coordinate.latitude)")
-            Text(Constants.String.longitude + "\(currentLocation.coordinate.longitude)")
-          }
-          
+
+      // Location services are available.
+      case .authorizedWhenInUse:
+        let currentLocation = CLLocation(
+          latitude: locationManager.location?.latitude ?? Constants.General.zero,
+          longitude: locationManager.location?.longitude ?? Constants.General.zero)
+
+        Text(Constants.String.yourLocation)
+        if currentLocation.coordinate.latitude == Constants.General.zero {
+          // Show progress spinner while fetching location data
+          ProgressView()
+        } else {
+          Text(Constants.String.latitude + "\(currentLocation.coordinate.latitude)")
+          Text(Constants.String.longitude + "\(currentLocation.coordinate.longitude)")
+        }
+
         // Location services currently unavailable.
-        case .restricted, .denied:
-          Text(Constants.String.restritedOrDenied)
-          
+      case .restricted, .denied:
+        Text(Constants.String.restritedOrDenied)
+
         // Authorization not determined yet.
-        case .notDetermined:
-          Text(Constants.String.findLocation)
-          ProgressView()
-          
-        default:
-          ProgressView()
+      case .notDetermined:
+        Text(Constants.String.findLocation)
+        ProgressView()
+
+      default:
+        ProgressView()
       }
     } // VStack
   }

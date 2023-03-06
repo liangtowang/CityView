@@ -17,11 +17,11 @@ struct City: Identifiable, Decodable {
   let name: String
   let lat: Double
   let lon: Double
-  
+
   private enum CodingKeys: String, CodingKey {
     case name, lat, lon
   }
-  
+
   // City coordinates
   var coordinate: CLLocationCoordinate2D {
     CLLocationCoordinate2D(latitude: lat, longitude: lon)

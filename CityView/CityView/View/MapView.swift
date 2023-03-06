@@ -9,11 +9,11 @@ import SwiftUI
 import MapKit
 
 struct MapView: View {
-  
+
   // MARK: - Property
   @State var city: City
   @State private var region = MKCoordinateRegion()
-  
+
   // MARK: - Body
   var body: some View {
     Map(coordinateRegion: $region)
@@ -22,7 +22,7 @@ struct MapView: View {
         setRegion(city.coordinate)
       }
   }
-  
+
   // MARK: - SetRegion
   private func setRegion(_ coordinate: CLLocationCoordinate2D) {
     region = MKCoordinateRegion(

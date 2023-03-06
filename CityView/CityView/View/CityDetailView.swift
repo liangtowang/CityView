@@ -9,10 +9,8 @@ import SwiftUI
 import MapKit
 
 struct CityDetailView: View {
-  
   // MARK: - Property
   @State var city: City
-  
   // MARK: - Body
   var body: some View {
     MapView(city: city)

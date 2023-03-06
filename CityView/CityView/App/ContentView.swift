@@ -15,7 +15,7 @@ struct ContentView: View {
   @State private var cities = [City]()
   @StateObject var locationManager = LocationManager()
   
-  @State var myLocation = CLLocation(latitude: 0.0, longitude: 0.0)
+  @State var myLocation = CLLocation(latitude: Constants.General.zero, longitude: Constants.General.zero)
   
   // MARK: - Body
   var body: some View {
@@ -42,21 +42,22 @@ struct ContentView: View {
           // Location services are available.
         case .authorizedWhenInUse:
           
-          let myLocation = CLLocation(latitude: locationManager.location?.latitude ?? 0.0, longitude: locationManager.location?.longitude ?? 0.0)
+          let myLocation = CLLocation(
+            latitude: locationManager.location?.latitude ?? Constants.General.zero,
+            longitude: locationManager.location?.longitude ?? Constants.General.zero)
           
-          Text("Your current location is:")
-          if (myLocation.coordinate.latitude == 0.0) {
+          Text(Constants.String.yourLocation)
+          if (myLocation.coordinate.latitude == Constants.General.zero) {
             // Show progress spinner while fetching location data
             ProgressView()
           } else {
-            Text("Latitude: \(myLocation.coordinate.latitude.description)")
-            Text("Longitude: \(myLocation.coordinate.longitude.description)")
-//            updateDistance()
+            Text(Constants.String.latitude + "\(myLocation.coordinate.latitude)")
+            Text(Constants.String.longitude + "\(myLocation.coordinate.longitude)")
           }
         case .restricted, .denied:  // Location services currently unavailable.
-          Text("Current location data was restricted or denied.")
+          Text(Constants.String.restritedOrDenied)
         case .notDetermined:        // Authorization not determined yet.
-          Text("Finding your location...")
+          Text(Constants.String.findLocation)
           ProgressView()
         default:
           ProgressView()

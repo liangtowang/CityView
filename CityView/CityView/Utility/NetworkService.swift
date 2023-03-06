@@ -17,7 +17,7 @@ struct NetworkService {
   
   // MARK: - LoadData
   func loadData() async throws -> [City] {
-    guard let url = URL(string: Constants.General.urlString) else {
+    guard let url = URL(string: Constants.String.urlString) else {
       throw NetworkServiceError.couldNotCreateURL
     }
     

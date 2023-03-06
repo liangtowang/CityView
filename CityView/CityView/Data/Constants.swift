@@ -24,5 +24,7 @@ enum Constants {
 
     public static let restritedOrDenied = "Current location data was restricted or denied."
     public static let findLocation = "Finding your location..."
+
+    public static let noNetwork = "It seems you're offline. Please try again later!"
   }
 }

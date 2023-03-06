@@ -31,7 +31,7 @@ struct ContentView: View {
         } catch {
           cities = []
         }
-      }
+      } // task
       .navigationBarTitle(Constants.General.appName, displayMode: .large)
     } //: NavigationView
     .navigationViewStyle(StackNavigationViewStyle())
@@ -39,33 +39,36 @@ struct ContentView: View {
     // Get current location
     VStack {
       switch locationManager.authorizationStatus {
+          
           // Location services are available.
         case .authorizedWhenInUse:
           
-          let myLocation = CLLocation(
+          let currentLocation = CLLocation(
             latitude: locationManager.location?.latitude ?? Constants.General.zero,
             longitude: locationManager.location?.longitude ?? Constants.General.zero)
           
           Text(Constants.String.yourLocation)
-          if (myLocation.coordinate.latitude == Constants.General.zero) {
+          if (currentLocation.coordinate.latitude == Constants.General.zero) {
             // Show progress spinner while fetching location data
             ProgressView()
           } else {
-            Text(Constants.String.latitude + "\(myLocation.coordinate.latitude)")
-            Text(Constants.String.longitude + "\(myLocation.coordinate.longitude)")
+            Text(Constants.String.latitude + "\(currentLocation.coordinate.latitude)")
+            Text(Constants.String.longitude + "\(currentLocation.coordinate.longitude)")
           }
-        case .restricted, .denied:  // Location services currently unavailable.
+          
+        // Location services currently unavailable.
+        case .restricted, .denied:
           Text(Constants.String.restritedOrDenied)
-        case .notDetermined:        // Authorization not determined yet.
+          
+        // Authorization not determined yet.
+        case .notDetermined:
           Text(Constants.String.findLocation)
           ProgressView()
+          
         default:
           ProgressView()
       }
-    }
-    
-//    func updateDistance() {
-//    }
+    } // VStack
   }
 }
 

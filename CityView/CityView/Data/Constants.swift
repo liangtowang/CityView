@@ -18,7 +18,7 @@ enum Constants {
   enum String {
     public static let urlString = "https://pgroute-staging.easyparksystem.net/cities"
     
-    public static let yourLocation = "Your current location is:"
+    public static let yourLocation = "Current location is:"
     public static let latitude = "Latitude: "
     public static let longitude = "Longitude: "
     

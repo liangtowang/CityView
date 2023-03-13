@@ -16,12 +16,6 @@ struct CityDetailView: View {
     ZStack {
       // Map of the city
       MapView(city: city)
-
-      // Get points array from string
-      let pointsArray = city.points.components(separatedBy: ",")
-      Star(corners: pointsArray.count, smoothness: 0.4)
-        .stroke(.red)
-        .frame(width: 200, height: 200)
     }
   }
 }
